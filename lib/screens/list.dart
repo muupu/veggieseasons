@@ -18,7 +18,7 @@ class ListScreen extends StatelessWidget {
   final String? restorationId;
 
   Widget _generateVeggieRow(Veggie veggie, Preferences prefs,
-      {bool inSeason = true}) {
+  [bool inSeason = true]) {
     return Padding(
       padding: const EdgeInsets.only(left: 16, right: 16, bottom: 24),
       child: FutureBuilder<Set<VeggieCategory>>(
@@ -57,7 +57,7 @@ class ListScreen extends StatelessWidget {
                       children: [
                         Text(dateString.toUpperCase(),
                             style: Styles.minorText(themeData)),
-                        Text('In season today1112',
+                        Text('In season today',
                             style: Styles.headlineText(themeData)),
                       ],
                     ),
@@ -78,7 +78,7 @@ class ListScreen extends StatelessWidget {
                       index - (appState.availableVeggies.length + 2);
                   return _generateVeggieRow(
                       appState.unavailableVeggies[relativeIndex], prefs,
-                      inSeason: false);
+                      false);
                 }
               },
             ),
