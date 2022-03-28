@@ -18,8 +18,9 @@ class ListScreen extends StatelessWidget {
   final String? restorationId;
 
   Widget _generateVeggieRow(Veggie veggie, Preferences prefs,
-  [bool inSeason = true]) {
+      [bool inSeason = true]) {
     return Padding(
+      // Creates insets with only the given values non-zero
       padding: const EdgeInsets.only(left: 16, right: 16, bottom: 24),
       child: FutureBuilder<Set<VeggieCategory>>(
           future: prefs.preferredCategories,
@@ -36,7 +37,7 @@ class ListScreen extends StatelessWidget {
       restorationScopeId: restorationId,
       builder: (context) {
         var dateString = DateFormat('MMMM y').format(DateTime.now());
-
+        print("dateString: ${dateString}");
         final appState = Provider.of<AppState>(context);
         final prefs = Provider.of<Preferences>(context);
         final themeData = CupertinoTheme.of(context);
@@ -51,6 +52,7 @@ class ListScreen extends StatelessWidget {
               itemBuilder: (context, index) {
                 if (index == 0) {
                   return Padding(
+                    // Creates insets from offsets from the left, top, right, and bottom
                     padding: const EdgeInsets.fromLTRB(16, 24, 16, 16),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,8 +79,7 @@ class ListScreen extends StatelessWidget {
                   var relativeIndex =
                       index - (appState.availableVeggies.length + 2);
                   return _generateVeggieRow(
-                      appState.unavailableVeggies[relativeIndex], prefs,
-                      false);
+                      appState.unavailableVeggies[relativeIndex], prefs, false);
                 }
               },
             ),
