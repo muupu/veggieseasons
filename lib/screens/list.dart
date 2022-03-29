@@ -41,6 +41,8 @@ class ListScreen extends StatelessWidget {
         final appState = Provider.of<AppState>(context);
         final prefs = Provider.of<Preferences>(context);
         final themeData = CupertinoTheme.of(context);
+        final valueTest = Provider.of<int>(context);
+        print("valueTest: ${valueTest}");
         return AnnotatedRegion<SystemUiOverlayStyle>(
           value: SystemUiOverlayStyle(
               statusBarBrightness: MediaQuery.platformBrightnessOf(context)),
