@@ -25,7 +25,7 @@ class ListScreen extends StatelessWidget {
       child: FutureBuilder<Set<VeggieCategory>>(
           future: prefs.preferredCategories,
           builder: (context, snapshot) {
-            final data = snapshot.data ?? <VeggieCategory>{};
+            final data = snapshot.data ?? <VeggieCategory>{}; // snapshot.data不为空则返回，否则返回后者
             return VeggieCard(veggie, inSeason, data.contains(veggie.category));
           }),
     );

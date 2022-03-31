@@ -82,7 +82,7 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
         ChangeNotifierProvider(
           create: (_) => Preferences()..load(),
         ),
-        Provider<int>.value(value: 111)
+        Provider<int>.value(value: 111),
       ],
       child: CupertinoApp(
         theme: Styles.veggieThemeData,
