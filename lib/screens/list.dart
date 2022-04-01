@@ -10,6 +10,8 @@ import 'package:veggieseasons/data/app_state.dart';
 import 'package:veggieseasons/data/preferences.dart';
 import 'package:veggieseasons/data/veggie.dart';
 import 'package:veggieseasons/styles.dart';
+import 'package:veggieseasons/widgets/count_container.dart';
+import 'package:veggieseasons/widgets/counter.dart';
 import 'package:veggieseasons/widgets/veggie_card.dart';
 
 class ListScreen extends StatelessWidget {
@@ -63,6 +65,7 @@ class ListScreen extends StatelessWidget {
                             style: Styles.minorText(themeData)),
                         Text('In season today',
                             style: Styles.headlineText(themeData)),
+                        CountContainer(count: 101, child: Counter()),
                       ],
                     ),
                   );
